@@ -2,7 +2,7 @@ from pprint import pprint
 from django.shortcuts import render, redirect
 from . import models
 from .utils import compile_score_table
-
+from .forms import StudentProfileForm  # add this import
 
 def home(request, username):
     student = models.Student.objects.filter(username=username).first()
@@ -17,3 +17,16 @@ def home(request, username):
         "scores_data": scores_data
     }
     return render(request, 'home.html', context)
+
+
+def upload_picture(request, username):
+    student = models.Student.objects.filter(username=username).first()
+    if not student:
+        return redirect('portal-login')
+    
+    if request.method == 'POST':
+        form = StudentProfileForm(request.POST, request.FILES, instance=student)
+        if form.is_valid():
+            form.save()
+    
+    return redirect('home', username=username)

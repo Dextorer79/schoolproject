@@ -40,6 +40,7 @@ class Student(models.Model):
     age = models.PositiveIntegerField()
     class_name = models.CharField(max_length=10, choices=CLASS_CHOICES)
     password = models.CharField(max_length=128)
+    profile_picture = models.ImageField(upload_to='student_pics/', blank=True, null=True)
 
     def save(self, *args, **kwargs):
         if not self.pk:

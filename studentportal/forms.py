@@ -11,3 +11,9 @@ class SignUpForm(forms.ModelForm):
         model = Student
         fields = ["first_name", "last_name", "age", "class_name", "password"]
 
+
+
+class StudentProfileForm(forms.ModelForm):
+    class Meta:
+        model = Student
+        fields = ['profile_picture']
