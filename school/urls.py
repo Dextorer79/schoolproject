@@ -6,8 +6,8 @@ from django.conf.urls.static import static
 import schoolviews
 
 urlpatterns = [
-    path('', schoolviews.redirect_to_login),
     path('admin/', admin.site.urls),
+    path('', schoolviews.redirect_to_login),
     path('login/', schoolviews.redirect_to_login),
     path('login/<slug:user_type>/', schoolviews.login, name='portal-login'),
     path('signup/', schoolviews.redirect_to_signup),

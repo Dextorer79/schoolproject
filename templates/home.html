@@ -51,7 +51,7 @@
 <!-- Profile pic + Table side by side -->
 <div class="row mt-3 align-items-start">
 
-  <!-- Profile picture column -->
+  <!-- Profile picture + upload form column -->
   <div class="col-auto">
     <div class="profile-pic-wrapper">
       {% if student.profile_picture %}
@@ -62,12 +62,12 @@
         </div>
       {% endif %}
     </div>
+    <form method="POST" action="{% url 'upload-picture' student.username %}" enctype="multipart/form-data">
+      {% csrf_token %}
+      <input type="file" name="profile_picture" accept="image/*" class="form-control mt-2" style="width: 140px;">
+      <button type="submit" class="btn btn-sm btn-dark mt-1" style="width: 140px;">Upload</button>
+    </form>
   </div>
-  <form method="POST" action="{% url 'upload-picture' student.username %}" enctype="multipart/form-data">
-  {% csrf_token %}
-  <input type="file" name="profile_picture" accept="image/*" class="form-control mt-2" style="width: 140px;">
-  <button type="submit" class="btn btn-sm btn-dark mt-1" style="width: 140px;">Upload</button>
-</form>
 
   <!-- Marks table column -->
   <div class="col">

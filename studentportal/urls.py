@@ -7,5 +7,4 @@ urlpatterns = [
     path('s/<slug:username>/', views.home, name='home'),
     path('<str:username>/upload-picture/', views.upload_picture, name='upload-picture'),
     path('<str:username>/', views.home, name='home'),
-    path('<str:username>/upload-picture/', views.upload_picture, name='upload-picture'),
 ]

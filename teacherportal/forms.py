@@ -9,5 +9,5 @@ class SignUpForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput)
     class Meta:
         model = Teacher
-        fields = ["email", "first_name", "last_name", "age", "password", "subject_name", "class_name"]
+        fields = ["email", "first_name", "last_name", "age", "password", "subject_names", "class_name"]
 
